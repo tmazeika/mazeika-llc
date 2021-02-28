@@ -1,0 +1,117 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font: 300 1em/1.5 'Source Sans Pro', sans-serif;
+
+  /*width: 8.5in;*/
+  /*height: 11in;*/
+  margin: 0;
+  padding: 1in;
+}
+
+strong {
+  font-weight: 600;
+}
+
+.small {
+  font-size: 0.75em;
+}
+
+.muted {
+  color: #999;
+}
+
+.flex {
+  display: flex;
+}
+
+.flex-spacer {
+  flex-grow: 1;
+}
+
+header, main {
+  margin-bottom: 3em;
+}
+
+table {
+  border-collapse: collapse;
+}
+
+table td {
+  vertical-align: top;
+}
+
+.bill-to td:first-child, .pay-to td:first-child {
+  padding-right: 1em;
+  text-align: right;
+}
+
+.bill-to tr:not(:last-child) td {
+  padding-bottom: 1em;
+}
+
+.invoice-info td {
+  text-align: right;
+}
+
+.invoice-info td:first-child {
+  padding-right: 1em;
+}
+
+.work {
+  margin: auto;
+}
+
+.work thead tr:last-child td {
+  font-weight: 600;
+}
+
+.work td:not(:first-child) {
+  width: 7em;
+  text-align: right;
+}
+
+.work td:not(:last-child) {
+  padding-right: 1em;
+}
+
+.work tr:nth-last-child(2) td {
+  padding-bottom: 0.5em;
+}
+
+.work-total {
+  border-top: 1px solid #999;
+
+  padding-top: 0.5em;
+  text-align: right;
+}
+
+.work-total > *:not(:last-child) {
+  margin-right: 0.5em;
+}
+
+@media screen {
+  body {
+    border: 1px solid #999;
+  }
+}
+
+@page {
+  size: 8.5in 11in;
+  margin: 0;
+
+  @top-left-corner {
+    content: none;
+  }
+  @top-right-corner {
+    content: none;
+  }
+  @bottom-right-corner {
+    content: none;
+  }
+  @bottom-left-corner {
+    content: none;
+  }
+}

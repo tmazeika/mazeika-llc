@@ -1,0 +1,63 @@
+{
+  "clockify": {
+    "api_key": "...",
+    "user_id": "...",
+    "workspace_id": "...",
+    "uninvoiced_tag_id": "..."
+  },
+  "wise": {
+    "api_key": "..."
+  },
+  "bank_accounts": {
+    "gbp": {
+      "Account Holder": "...",
+      "Account #": "...",
+      "Sort Code": "...",
+      "IBAN": "...",
+      "Address": [
+        "**Wise**",
+        "56 Shoreditch High Street",
+        "London",
+        "E1 6JJ",
+        "United Kingdom"
+      ]
+    },
+    "usd": {
+      "Account Holder": "...",
+      "Account Type": "...",
+      "Account #": "...",
+      "Routing #": "...",
+      "Address": [
+        "**Wise**",
+        "19 W 24th Street",
+        "New York, NY 10010",
+        "United States"
+      ]
+    }
+  },
+  "company_info": {
+    "description": "Software Engineering Services",
+    "address": [
+      "**My Company LLC**",
+      "123 Main St",
+      "Boston, MA 02115",
+      "United States"
+    ]
+  },
+  "clients": {
+    "My Client LLC": {
+      "address": [
+        "**My Client LLC**",
+        "59 Essex Road",
+        "Canonbury",
+        "London",
+        "N1 2SF",
+        "United Kingdom",
+        "_Company # 12345678_"
+      ],
+      "bill_time_step": 30,
+      "currency_code": "gbp",
+      "days_until_due": 30
+    }
+  }
+}

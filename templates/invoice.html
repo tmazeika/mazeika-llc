@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,300;0,600;1,300">
+  <title>invoice_{{ client.invoice_num }}</title>
+</head>
+<body>
+  <header class="flex">
+    <table class="bill-to">
+      <tbody>
+        <tr>
+          <td class="muted">From</td>
+          <td>
+            {% for line in company_info.address %}
+              {{ line | md | safe }}<br/>
+            {% endfor %}
+          </td>
+        </tr>
+        <tr>
+          <td class="muted">Bill To</td>
+          <td>
+            {% for line in client.address %}
+              {{ line | md | safe }}<br/>
+            {% endfor %}
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="flex-spacer"></div>
+    <table class="invoice-info">
+      <tbody>
+        <tr>
+          <td class="muted">Invoice #</td>
+          <td>{{ client.invoice_num }}</td>
+        </tr>
+        <tr>
+          <td class="muted">Invoice Date</td>
+          <td>{{ invoice_date | date }}</td>
+        </tr>
+        <tr>
+          <td class="muted">Due Date</td>
+          <td>{{ invoice_due | date }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </header>
+  <main>
+    <table class="work">
+      <thead>
+        <tr>
+          <td class="muted" colspan="4">{{ company_info.description }}</td>
+        </tr>
+        <tr>
+          <td>Description</td>
+          <td>Rate</td>
+          <td>Hours</td>
+          <td>Total</td>
+        </tr>
+      </thead>
+      <tbody>
+        {% for item in work_items %}
+          <tr>
+            <td>{{ item.project }} &mdash; {{ item.description }}</td>
+            <td>{{ item.rate | money }}</td>
+            <td>{{ item.rounded_hours }}</td>
+            <td>{{ item.total | money }}</td>
+          </tr>
+        {% endfor %}
+        <tr>
+          <td class="work-total" colspan="4">
+            <span class="muted">Amount Due</span>
+            <span>{{ work_total | money }}</span>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </main>
+  <footer>
+    <p>
+      Please pay <strong>{{ work_total_converted | money(client.currency_code) }}</strong>
+      by <strong>{{ invoice_due | date }}</strong> to
+    </p>
+    <table class="pay-to">
+      <tbody>
+        {% for key, value in bank_account.items() %}
+          <tr>
+            <td class="muted">{{ key }}</td>
+            <td>
+              {% if value is string %}
+                {{ value }}
+              {% else %}
+                {% for line in value %}
+                  {{ line | md | safe }}<br/>
+                {% endfor %}
+              {% endif %}
+            </td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+    {% if work_total_converted != work_total %}
+      <p>
+        <em class="small muted">
+          1 USD = {{ exchange_rate }} {{ client.currency_code | upper }}
+        </em>
+      </p>
+    {% endif %}
+  </footer>
+</body>
+</html>
