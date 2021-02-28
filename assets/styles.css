@@ -3,16 +3,14 @@
 }
 
 body {
-  font: 300 1em/1.5 'Source Sans Pro', sans-serif;
+  font: 400 1em/1.5 'Source Sans Pro', sans-serif;
 
-  /*width: 8.5in;*/
-  /*height: 11in;*/
   margin: 0;
   padding: 1in;
 }
 
 strong {
-  font-weight: 600;
+  font-weight: 700;
 }
 
 .small {
@@ -65,7 +63,7 @@ table td {
 }
 
 .work thead tr:last-child td {
-  font-weight: 600;
+  font-weight: 700;
 }
 
 .work td:not(:first-child) {
@@ -90,28 +88,4 @@ table td {
 
 .work-total > *:not(:last-child) {
   margin-right: 0.5em;
-}
-
-@media screen {
-  body {
-    border: 1px solid #999;
-  }
-}
-
-@page {
-  size: 8.5in 11in;
-  margin: 0;
-
-  @top-left-corner {
-    content: none;
-  }
-  @top-right-corner {
-    content: none;
-  }
-  @bottom-right-corner {
-    content: none;
-  }
-  @bottom-left-corner {
-    content: none;
-  }
 }
