@@ -15,7 +15,7 @@
       "Sort Code": "...",
       "IBAN": "...",
       "Address": [
-        "**Wise**",
+        "**TransferWise**",
         "56 Shoreditch High Street",
         "London",
         "E1 6JJ",
@@ -28,7 +28,7 @@
       "Account #": "...",
       "Routing #": "...",
       "Address": [
-        "**Wise**",
+        "**TransferWise**",
         "19 W 24th Street",
         "New York, NY 10010",
         "United States"
